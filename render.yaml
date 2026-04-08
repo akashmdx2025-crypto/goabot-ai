@@ -23,3 +23,5 @@ services:
         sync: false
       - key: WHATSAPP_ACCESS_TOKEN
         sync: false
+      - key: FRONTEND_URL
+        value: https://frontend-dun-mu-46.vercel.app

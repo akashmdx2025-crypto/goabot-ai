@@ -30,6 +30,25 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    service: 'GoaBot AI — WhatsApp Assistant API',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      webhook: '/api/webhook',
+      business: '/api/business',
+      bookings: '/api/bookings',
+      menu: '/api/menu',
+    },
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({
